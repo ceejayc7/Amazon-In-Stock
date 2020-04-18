@@ -13,6 +13,7 @@ const openPage = async (browser, url) => {
   await page.setExtraHTTPHeaders({
     "Accept-Language": "en-GB,en-US;q=0.9,en;q=0.8",
   });
+  await page.setDefaultNavigationTimeout(0);
   await page.goto(url, { waitUntil: "networkidle0" });
   return page;
 };
