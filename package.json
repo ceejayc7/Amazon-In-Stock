@@ -1,0 +1,15 @@
+{
+  "name": "Amazon In Stock",
+  "version": "1.0.0",
+  "description": "Check to see if an Amazon offer is in stock",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "ceejay",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "12.0.2",
+    "puppeteer": "2.1.1"
+  }
+}
