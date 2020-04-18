@@ -1,5 +1,5 @@
 {
-  "name": "Amazon In Stock",
+  "name": "amazoninstock",
   "version": "1.0.0",
   "description": "Check to see if an Amazon offer is in stock",
   "main": "index.js",
