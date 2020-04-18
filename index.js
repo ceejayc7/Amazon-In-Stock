@@ -61,7 +61,13 @@ const refreshPages = async () => {
 };
 
 const start = async () => {
-  //const browser = await puppeteer.launch({devtools: true});
+  // debug
+  // const browser = await puppeteer.launch({devtools: true});
+
+  // UNIX
+  // const browser = await puppeteer.launch({headless: true, args: ['--no-sandbox', '--disable-extensions'], executablePath: '/usr/bin/chromium-browser'});
+
+  // Windows headless
   const browser = await puppeteer.launch();
 
   await createPages(browser);
