@@ -77,7 +77,7 @@ const start = async () => {
   await createPages(browser);
 
   while (true) {
-    await refreshPages(browser);
+    await refreshPages();
     await delay(60000);
   }
 };
