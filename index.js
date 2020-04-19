@@ -1,6 +1,7 @@
 const puppeteer = require("puppeteer");
 const db = require("./db.json").offers;
 const OFFER_LISTING = "https://www.amazon.com/gp/offer-listing";
+const NEW_QUERY_PARAM = "f_new=true";
 const { sendDiscordMessage } = require("./discord.js");
 
 const delay = (timeout) =>
@@ -44,7 +45,7 @@ const createPages = async (browser) => {
   for (const site of db) {
     const page = await openPage(
       browser,
-      `${OFFER_LISTING}/${site.offerListing}`
+      `${OFFER_LISTING}/${site.offerListing}?${NEW_QUERY_PARAM}`
     );
     site.page = page;
   }
@@ -56,7 +57,9 @@ const refreshPages = async () => {
     await page.reload({ waitUntil: "networkidle0" });
     const isAvailable = await isProductAvailable(page, site);
     if (isAvailable) {
-      sendDiscordMessage(`${OFFER_LISTING}/${site.offerListing} is in stock`);
+      sendDiscordMessage(
+        `${site.name} is in stock - ${OFFER_LISTING}/${site.offerListing}`
+      );
     }
   }
 };
