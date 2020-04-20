@@ -1,5 +1,23 @@
 # Amazon-In-Stock
 
+Add db.json
+```
+{
+  "config": {
+    "discordToken": "token",
+    "channelToSend": "general"
+  },
+  "offers": [
+    {
+      "name": "Ring Fit Adventure - Nintendo Switch",
+      "offerListing": "B07XV4NHHN",
+      "maxPrice": 100.0
+    }
+  ]
+}
+
+```
+
 Install the following for headless Chrome on UNIX
 ```
 apt-get update && apt-get install -y \
@@ -41,20 +59,4 @@ apt-get update && apt-get install -y \
   libnss3 \
   lsb-release \
   xdg-utils
-```
-Add db.json
-```
-{
-  "config": {
-    "discordToken": "token",
-    "channelToSend": "general"
-  },
-  "offers": [
-    {
-      "offerListing": "B07XV4NHHN",
-      "maxPrice": 100.0
-    }
-  ]
-}
-
 ```
