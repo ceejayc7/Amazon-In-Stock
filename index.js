@@ -31,6 +31,11 @@ const isProductAvailable = async (page, site) => {
     const prices = await getPrices(page);
     for (const price of prices) {
       if (price <= site.maxPrice) {
+        // prevent notification spam
+        if (site.isProductAvailable) {
+          return false;
+        }
+        site.isProductAvailable = true;
         return true;
       }
     }
@@ -38,6 +43,7 @@ const isProductAvailable = async (page, site) => {
     console.log(err);
   }
 
+  site.isProductAvailable = false;
   return false;
 };
 
@@ -48,6 +54,7 @@ const createPages = async (browser) => {
       `${OFFER_LISTING}/${site.offerListing}?${NEW_QUERY_PARAM}`
     );
     site.page = page;
+    site.isProductAvailable = false;
   }
 };
 
